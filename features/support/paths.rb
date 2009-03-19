@@ -4,11 +4,9 @@ module NavigationHelpers
     
     when /the homepage/
       root_path
-    when /the new ships page/
-      new_ships_path
+    when /the new ship page/
+      new_ship_path
 
-    when /the new ships page/
-      new_ships_path
 
     
     # Add more page name => path mappings here

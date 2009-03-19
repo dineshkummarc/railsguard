@@ -8,7 +8,7 @@
 
 <% @ships.each do |ship| %>
   <tr>
-    <td><%=h ship.title %></td>
+    <td><%=h ship.name %></td>
     <td><%=h ship.description %></td>
     <td><%= link_to 'Show', ship %></td>
     <td><%= link_to 'Edit', edit_ship_path(ship) %></td>

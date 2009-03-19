@@ -2,12 +2,20 @@ Given /^the following ships:$/ do |ships|
   Ships.create!(ships.hashes)
 end   
 
-Given /^that I have created a ship "(.*)"$/ do |title|
-  Ship.create!(:title => title )
+Given /^that I have created a ship "(.*)"$/ do |name|
+  Ship.create!(:name => name )
 end        
 
 When /^I go to the ships page$/ do 
   visit "/ships"
+end   
+
+Then /^the name should be "(.*)"$/ do |name|    
+  response.should have_tag("strong", :text => name)
+end   
+
+Then /^the description should be "(.*)"$/ do |desc|    
+  response.should have_tag("p.description", :text => desc)
 end
 
 # When /^I delete the (\d+)(?:st|nd|rd|th) ships$/ do |pos|
