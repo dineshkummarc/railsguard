@@ -2,7 +2,12 @@
   %strong
     = h @ship.name 
 %p.description
-  = h @ship.description        
+  = h @ship.description 
+%p.tech_level
+  = h @ship.tech_level
+%p.tonnage
+  = "#{h @ship.tonnage} Tons"
+         
   
 %p.links
   = link_to 'Edit', edit_ship_path(@ship) |

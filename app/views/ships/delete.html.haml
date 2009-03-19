@@ -1,0 +1,10 @@
+%h1 Delete ship        
+
+- form_for :ship, :url => ship_path(@ship), :html => { :method => :delete } do |f|  
+   
+  = f.error_messages      
+  %p
+    = f.submit 'Delete'
+     
+%p
+  = link_to 'Back', ships_path

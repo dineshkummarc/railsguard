@@ -69,6 +69,10 @@ class ShipsController < ApplicationController
         format.xml  { render :xml => @ship.errors, :status => :unprocessable_entity }
       end
     end
+  end    
+  
+  def delete
+    @ship = Ship.find(params[:id])
   end
 
   # DELETE /ships/1

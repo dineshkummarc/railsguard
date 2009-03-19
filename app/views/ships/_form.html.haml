@@ -1,0 +1,21 @@
+- form_for(@ship) do |f|   
+  = f.error_messages   
+  %p
+    = f.label :name   
+    %br
+    = f.text_field :name   
+  %p
+    = f.label :description   
+    %br
+    = f.text_area :description   
+  %p
+    = f.label :tonnage   
+    %br
+    = f.text_field :tonnage       
+  %p
+    = f.label :tech_level   
+    %br          
+    = f.select :tech_level, (7..15).map { |i| i }
+   
+  %p
+    = f.submit @ship.new_record? ? 'Create' : 'Update'

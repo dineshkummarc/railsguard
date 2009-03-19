@@ -1,18 +1,6 @@
-%h1
-  New ship
-  - form_for(@ship) do |f|   
-  = f.error_messages   
-    %p
-      = f.label :name   
-      %br
-      = f.text_field :name   
-    %p
-      = f.label :description   
-      %br
-      = f.text_area :description   
-    %p
-      = f.submit 'Create'   
+%h1 New ship
+= render :partial => 'form'  
  
-    %p
-      = link_to 'Back', ships_path   
+%p
+  = link_to 'Back', ships_path   
                               

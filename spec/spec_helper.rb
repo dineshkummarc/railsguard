@@ -3,7 +3,9 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'spec/autorun'
-require 'spec/rails'
+require 'spec/rails'    
+
+require File.expand_path(File.dirname(__FILE__) + "/blueprints")
 
 Spec::Runner.configure do |config|
   # If you're not using ActiveRecord you should remove these
@@ -11,7 +13,9 @@ Spec::Runner.configure do |config|
   # in your config/boot.rb
   config.use_transactional_fixtures = true
   config.use_instantiated_fixtures  = false
-  config.fixture_path = RAILS_ROOT + '/spec/fixtures/'
+  config.fixture_path = RAILS_ROOT + '/spec/fixtures/'   
+  
+  config.before(:each) { Sham.reset }
 
   # == Fixtures
   #

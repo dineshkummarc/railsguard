@@ -15,9 +15,12 @@ describe "/ships/new.html.haml" do
     render
     
     response.should have_tag("form[action=?][method=post]", ships_path) do
-      with_tag("input#ship_name[name=?]", "ship[name]")
-      with_tag("textarea#ship_description[name=?]", "ship[description]")
-    end
+      with_tag("input#ship_name[name=?]", "ship[name]")    
+      with_tag("input#ship_tonnage[name=?]", "ship[tonnage]")   
+      with_tag("select#ship_tech_level[name=?]", "ship[tech_level]")   
+      with_tag("textarea#ship_description[name=?]", "ship[description]") 
+      with_tag("input[type=submit][value=Create]")  
+    end    
   end
 end
 

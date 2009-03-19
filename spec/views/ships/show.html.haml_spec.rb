@@ -11,7 +11,7 @@ describe "/ships/show.html.haml" do
 
   it "renders attributes in <p>" do
     render
-    response.should have_tag("p")
+    response.should have_tag( "p.description", :text => "value for description" )
   end
 end
 

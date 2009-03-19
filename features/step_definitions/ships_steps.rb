@@ -1,9 +1,9 @@
 Given /^the following ships:$/ do |ships|
-  Ships.create!(ships.hashes)
+  Ships.make()
 end   
 
 Given /^that I have created a ship "(.*)"$/ do |name|
-  Ship.create!(:name => name )
+  Ship.make(:name => name )
 end        
 
 When /^I go to the ships page$/ do 
@@ -16,7 +16,16 @@ end
 
 Then /^the description should be "(.*)"$/ do |desc|    
   response.should have_tag("p.description", :text => desc)
+end  
+
+Then /^the tech level should be "(.*)"$/ do |tl|
+  response.should have_tag("p.tech_level", :text => tl) 
 end
+
+Then /^the tonnage should be "(.*)"$/ do |tonnage|
+  response.should have_tag("p.tonnage", :text => "#{tonnage} Tons") 
+end
+
 
 # When /^I delete the (\d+)(?:st|nd|rd|th) ships$/ do |pos|
 #   visit ships_url
