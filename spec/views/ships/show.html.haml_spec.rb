@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 
-describe "/ships/show.html.erb" do
+describe "/ships/show.html.haml" do
   include ShipsHelper
   before(:each) do
     assigns[:ship] = @ship = stub_model(Ship,
@@ -11,8 +11,7 @@ describe "/ships/show.html.erb" do
 
   it "renders attributes in <p>" do
     render
-    response.should have_text(//)
-    response.should have_text(/value\ for\ description/)
+    response.should have_tag("p")
   end
 end
 
