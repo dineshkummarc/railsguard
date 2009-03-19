@@ -1,0 +1,15 @@
+log/*.log
+tmp/**/*
+.DS_Store
+doc/api
+doc/app
+coverage
+db/*.sqlite3
+db/development_structure.sql
+db/schema.rb
+public/avatars
+public/uploads      
+public/system/uploads/*
+index/*
+tmp/*
+*.swp
