@@ -14,11 +14,17 @@ Feature: Manage ships
     And I fill in "Description" with "That's no moon, that's a battlestation." 
     And I fill in "Tonnage" with "1000"    
     And I fill in "Tech Level" with "14"
+    And I fill in "Jumpdrive" with "2"
+    And I fill in "Thrust" with "1"
+    And I fill in "Power" with "1"
     And I press "Create"
     Then the name should be "Deathstar"  
-    Then the description should be "That's no moon, that's a battlestation." 
-    Then the tech level should be "14"   
-    Then the tonnage should be "1000"   
+    Then the "description" should be "That's no moon, that's a battlestation." 
+    Then the "tech_level" should be "14"   
+    Then the tonnage should be "1000"  
+    Then the "jumpdrive" should be "2"
+    Then the "thrust" should be "1"
+    Then the "power" should be "1"
     
 
   

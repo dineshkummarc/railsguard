@@ -11,28 +11,21 @@ When /^I go to the ships page$/ do
 end   
 
 Then /^the name should be "(.*)"$/ do |name|    
-  response.should have_tag("strong", :text => name)
+  response.should have_tag("h2", :text => name)
 end   
 
-Then /^the description should be "(.*)"$/ do |desc|    
-  response.should have_tag("p.description", :text => desc)
+Then /^the tonnage should be "(.*)"$/ do |name|    
+  response.should have_selector("tr.tonnage td:nth-child(2)") do |td|
+    td.inner_html.should == "#{name} Tons"
+  end
+end
+
+Then /^the "([^\"]*)" should be "(.*)"$/ do |attr, value|    
+  response.should have_tag("td.label", :text => attr.titlecase)
+  response.should have_selector("tr.#{attr} td:nth-child(2)") do |td|
+    td.inner_html.should == value
+  end
 end  
-
-Then /^the tech level should be "(.*)"$/ do |tl|
-  response.should have_tag("p.tech_level", :text => tl) 
-end
-
-Then /^the tonnage should be "(.*)"$/ do |tonnage|
-  response.should have_tag("p.tonnage", :text => "#{tonnage} Tons") 
-end
-
-
-# When /^I delete the (\d+)(?:st|nd|rd|th) ships$/ do |pos|
-#   visit ships_url
-#   within("table > tr:nth-child(#{pos.to_i+1})") do
-#     click_link "Destroy"
-#   end
-# end
 
 Then /^I should see the following ships:$/ do |ships|
   ships.raw[1..-1].each_with_index do |row, i|

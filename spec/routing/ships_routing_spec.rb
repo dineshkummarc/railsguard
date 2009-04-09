@@ -26,6 +26,10 @@ describe ShipsController do
     route_for(:controller => "ships", :action => "update", :id => "1").should == {:path =>"/ships/1", :method => :put}
   end
   
+    it "maps #delete" do
+      route_for(:controller => "ships", :action => "delete", :id => "1").should == {:path =>"/ships/1/delete", :method => :get}
+    end
+    
     it "maps #destroy" do
       route_for(:controller => "ships", :action => "destroy", :id => "1").should == {:path =>"/ships/1", :method => :delete}
     end
@@ -54,6 +58,10 @@ describe ShipsController do
   
     it "generates params for #update" do
       params_from(:put, "/ships/1").should == {:controller => "ships", :action => "update", :id => "1"}
+    end
+    
+    it "generates params for #delete" do
+      params_from(:get, "/ships/1/delete").should == {:controller => "ships", :action => "delete", :id => "1"}
     end
   
     it "generates params for #destroy" do

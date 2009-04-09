@@ -8,24 +8,7 @@ describe Ship do
   it "should create a new instance given valid attributes" do
     @ship.should be_valid   
   end 
-  
-  # These are really useless tests, just testing that ActiveRecord validations work...  
-  # Still I need the practice
-  it "should be invalid without a name" do
-    @ship.name = nil
-    @ship.should_not be_valid   
-  end   
-  
-  it "should be invalid without tech_level" do
-    @ship.tech_level = nil
-    @ship.should_not be_valid    
-  end   
-  
-  it "should be invalid without tonnage" do
-    @ship.tonnage = nil
-    @ship.should_not be_valid    
-  end  
-  
+    
   #This is where the real tests start
   it "should be a smallcraft if tonnage is less than 100" do
     @ship = Ship.make(:tonnage => 99)    
@@ -37,4 +20,15 @@ describe Ship do
     @ship.smallcraft.should == false
   end
   
+  it "should limit the jump drive according to tech_level" do
+    @ship = Ship.make(:tech_level => 11, :jumpdrive => 5)
+    @ship.max_jumpdrive.should == 2
+    @ship.jumpdrive.should == 2
+  end
+  
+  it "should not have a jumpdrive greater than the powerplant" do
+    @ship = Ship.make(:jumpdrive => 6, :tech_level => 15)
+    @ship.power.should >= 6
+  end
+
 end

@@ -11,5 +11,6 @@ describe "/ships/delete.html.haml" do
     response.should have_tag("form[action=?][method=post]", ship_path(@ship)) do
       with_tag("input[type=submit][value=Delete]")  
     end
+    response.should have_tag('h1', :text => "Delete #{@ship.name}")
   end
 end

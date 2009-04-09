@@ -1,14 +1,33 @@
-%p
-  %strong
-    = h @ship.name 
-%p.description
-  = h @ship.description 
-%p.tech_level
-  = h @ship.tech_level
-%p.tonnage
-  = "#{h @ship.tonnage} Tons"
-         
+%h2
+  = h @ship.name 
   
+%table
+  %tbody
+    %tr.description
+      %td.label
+        Description
+      %td= h @ship.description 
+    %tr.tech_level
+      %td.label
+        Tech Level
+      %td= h @ship.tech_level
+    %tr.tonnage
+      %td.label
+        Tonnage
+      %td= "#{h @ship.tonnage} Tons"
+    %tr.jumpdrive
+      %td.label
+        Jumpdrive
+      %td= h @ship.jumpdrive  
+    %tr.thrust
+      %td.label
+        Thrust
+      %td= h @ship.thrust   
+    %tr.power
+      %td.label
+        Power
+      %td= h @ship.power   
+        
 %p.links
   = link_to 'Edit', edit_ship_path(@ship) |
   = link_to 'Back', ships_path 
