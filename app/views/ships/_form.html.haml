@@ -2,32 +2,27 @@
   = f.error_messages   
   %p
     = f.label :name   
-    %br
     = f.text_field :name   
   %p
     = f.label :description   
-    %br
     = f.text_area :description   
   %p
     = f.label :tonnage   
-    %br
-    = f.text_field :tonnage       
+    = f.text_field :tonnage   
+  %o 
+    = f.label :configuration
+    = f.select :configuration_id, Configuration.find(:all).collect{ |c| [c.name,c.id] }  
   %p
     = f.label :tech_level   
-    %br          
     = f.select :tech_level, (7..15).map { |i| i }
   %p
     = f.label :jumpdrive
-    %br          
     = f.select :jumpdrive, (1..6).map { |i| i }
   %p
     = f.label :thrust
-    %br          
     = f.select :thrust, (1..6).map { |i| i }
   %p
-    = f.label :power
-    %br          
+    = f.label :power       
     = f.select :power, (1..18).map { |i| i } 
-    
   %p
     = f.submit @ship.new_record? ? 'Create' : 'Update'

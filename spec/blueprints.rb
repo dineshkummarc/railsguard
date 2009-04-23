@@ -22,3 +22,9 @@ Ship.blueprint do
   staterooms 10
 end
 
+Configuration.blueprint do 
+  name
+  modifier 1.2
+  streamlined true
+end
+
