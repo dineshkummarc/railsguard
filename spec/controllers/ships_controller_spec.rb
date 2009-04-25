@@ -56,10 +56,10 @@ describe ShipsController do
         assigns(:ship).should equal(mock_ship)
       end
 
-      it "redirects to the created ship" do
+      it "redirects to edit created ship" do
         Ship.stub!(:new).and_return(mock_ship(:save => true))
         post :create, :ship => {}
-        response.should redirect_to(ship_url(mock_ship))
+        response.should redirect_to(edit_ship_url(mock_ship))
       end
       
     end
@@ -98,10 +98,10 @@ describe ShipsController do
         assigns(:ship).should equal(mock_ship)
       end
 
-      it "redirects to the ship" do
+      it "redirects to edit the ship" do
         Ship.stub!(:find).and_return(mock_ship(:update_attributes => true))
         put :update, :id => "1"
-        response.should redirect_to(ship_url(mock_ship))
+        response.should redirect_to(edit_ship_url(mock_ship))
       end
 
     end

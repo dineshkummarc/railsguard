@@ -1,4 +1,5 @@
 class ShipsController < ApplicationController
+  before_filter :fetch_ship, :except => [ :new, :index, :create ]
   # GET /ships
   # GET /ships.xml
   def index
@@ -13,8 +14,6 @@ class ShipsController < ApplicationController
   # GET /ships/1
   # GET /ships/1.xml
   def show
-    @ship = Ship.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @ship }
@@ -34,7 +33,6 @@ class ShipsController < ApplicationController
 
   # GET /ships/1/edit
   def edit
-    @ship = Ship.find(params[:id])
   end
 
   # POST /ships
@@ -45,7 +43,7 @@ class ShipsController < ApplicationController
     respond_to do |format|
       if @ship.save
         flash[:notice] = 'Ship was successfully created.'
-        format.html { redirect_to(@ship) }
+        format.html { redirect_to edit_ship_path(@ship) }
         format.xml  { render :xml => @ship, :status => :created, :location => @ship }
       else
         format.html { render :action => "new" }
@@ -57,12 +55,10 @@ class ShipsController < ApplicationController
   # PUT /ships/1
   # PUT /ships/1.xml
   def update
-    @ship = Ship.find(params[:id])
-
     respond_to do |format|
       if @ship.update_attributes(params[:ship])
         flash[:notice] = 'Ship was successfully updated.'
-        format.html { redirect_to(@ship) }
+        format.html { redirect_to edit_ship_path(@ship) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -72,13 +68,11 @@ class ShipsController < ApplicationController
   end    
   
   def delete
-    @ship = Ship.find(params[:id])
   end
 
   # DELETE /ships/1
   # DELETE /ships/1.xml
   def destroy
-    @ship = Ship.find(params[:id])
     @ship.destroy
 
     respond_to do |format|
@@ -86,4 +80,10 @@ class ShipsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  protected
+    def fetch_ship
+      @ship = Ship.find(params[:id])
+    end
+      
 end

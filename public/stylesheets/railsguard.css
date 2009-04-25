@@ -1,0 +1,21 @@
+body { background: #201f25; color: #888; font-size: 68.75%; }
+#container { width: 960px; margin: 0 auto; border: 1px solid #444;}
+
+table.normal { border: 1px solid #444; background: #171717; padding: 24px; width: 480px; }
+table.normal td { vertical-align: top; padding: 4px 0; border-bottom: 1px solid #292929; }
+table.normal td label { padding-right: 1em; }
+table.normal td.tonnage { text-align: right; padding-right: 0.5em;  width: 4.5em; }
+table.normal td.price { text-align: right; padding-right: 0.5em; width: 4.5em; }
+table.normal tr.submit td { border: none; text-align: right; }
+
+form.normal label { display: block; color: #626262; font-weight: bold; text-align: right; }
+form.normal select { width: 8em; }
+form.normal textarea { height: 90px; padding: 4px;  width: 320px; font-size: 1em; }
+form.normal textarea, 
+form.normal input.text { background: #222; border: 1px solid #9de000; color: #9de000; font-family: courier; }
+form.normal input.text {  padding: 4px; width: 320px; }
+
+.right { float: right; }
+.left { float: left; }
+
+

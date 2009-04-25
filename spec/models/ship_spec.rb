@@ -31,4 +31,9 @@ describe Ship do
     @ship.power.should >= 6
   end
 
+  it "should not have a thrust greater than the powerplant" do
+    @ship = Ship.make(:thrust => 6, :tech_level => 15)
+    @ship.power.should >= 6
+  end
+
 end

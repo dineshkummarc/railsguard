@@ -6,16 +6,15 @@
       Title
     %th
       Description
+    %th{ :colspan => '2' }
   - @ships.each do |ship|   
     %tr
       %td
-        =h ship.name   
+        = link_to h(ship.name), edit_ship_path(ship)
       %td
         =h ship.description   
       %td
-        = link_to 'Show', ship   
-      %td
-        = link_to 'Edit', edit_ship_path(ship)   
+        = link_to 'Show', ship     
       %td
         = link_to 'Delete', delete_ship_path(ship)   
   

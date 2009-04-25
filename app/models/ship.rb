@@ -16,11 +16,15 @@ class Ship < ActiveRecord::Base
     max
   end
   
-  def jump_tonnage
+  def jumpdrive_tonnage
     jumpdrive ? (jumpdrive + 1) * 0.01 * tonnage : 0
   end
   
-  def jump_fuel
+  def jumpdrive_price
+    jumpdrive ? 4 * jumpdrive_tonnage : 0
+  end
+  
+  def jumpdrive_fuel
     jumpdrive ? jumpdrive * 0.1 * tonnage : 0
   end
   
@@ -48,6 +52,64 @@ class Ship < ActiveRecord::Base
     end
     thrust ? percentage * 0.01 * tonnage : 0
   end
+  
+  def thrust_price
+    case 
+      when thrust == 1 : modifier = 1.5
+      when thrust == 2 : modifier = 0.7
+      when thrust >= 3 : modifier = 0.5
+    end
+    thrust ? modifier * thrust_tonnage : 0
+  end
+  
+  def power_tonnage
+    case 
+      when tech_level >= 8 && tech_level <= 10  : modifier = 4
+      when tech_level >= 11 && tech_level <= 12 : modifier = 3
+      when tech_level >= 13 && tech_level <= 14 : modifier = 2
+      when tech_level == 15                     : modifier = 1
+    end
+    power ? power * modifier * 0.01 * tonnage : 0
+  end
+  
+  def power_price
+    power ? power_tonnage * 3 : 0
+  end
+  
+  def power_fuel
+    ep
+  end
+  
+  def total_fuel
+    power_fuel + jumpdrive_fuel
+  end
+  
+  def bridge
+    bridge = tonnage * 0.02
+    min = tonnage >= 200 ? 20 : 10
+    (bridge > 20) ? bridge : min
+  end
+  
+  def bridge_price
+    tonnage * 0.005
+  end
+  
+  def ep
+    power ? (0.01 * tonnage * power) : 0
+  end
+  
+  def hull_price
+    tonnage * self.configuration.modifier * 0.1
+  end
+  
+  def total_tonnage
+    jumpdrive_tonnage +
+    thrust_tonnage +
+    power_tonnage +
+    bridge +
+    total_fuel
+  end
+  
   
   private
 

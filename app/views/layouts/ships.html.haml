@@ -6,8 +6,10 @@
       Ships: 
       = controller.action_name 
     = stylesheet_link_tag 'scaffold' 
+    = stylesheet_link_tag 'railsguard' 
     
   %body
-    %p{ :style => "color: green" }
-      = flash[:notice]
-    = yield 
+    #container
+      %p
+        = flash[:notice]
+      = yield 
