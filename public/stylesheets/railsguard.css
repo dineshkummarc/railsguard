@@ -1,12 +1,16 @@
 body { background: #201f25; color: #888; font-size: 68.75%; }
 #container { width: 960px; margin: 0 auto; border: 1px solid #444;}
 
+table { font-size: 1em; }
 table.normal { border: 1px solid #444; background: #171717; padding: 24px; width: 480px; }
 table.normal td { vertical-align: top; padding: 4px 0; border-bottom: 1px solid #292929; }
 table.normal td label { padding-right: 1em; }
 table.normal td.tonnage { text-align: right; padding-right: 0.5em;  width: 4.5em; color: #7f95ff; }
 table.normal td.price { text-align: right; padding-right: 0.5em; width: 4.5em; color: #7f95ff; }
 table.normal tr.submit td { border: none; text-align: right; }
+
+table td a.config { height: 32px; width: 32px; background: black; border: 1px solid #444; float: left; margin: 0 7px 5px 0; cursor: pointer; }
+table td a.selected { background: #222; }
 
 form.normal label { display: block; color: #626262; font-weight: bold; text-align: right; }
 form.normal select { width: 8em; }
@@ -18,4 +22,16 @@ form.normal input.text {  padding: 4px; width: 320px; }
 .right { float: right; }
 .left { float: left; }
 
+.ui-slider { position: relative; text-align: left; }
+.ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: .6em; height: 1.2em; cursor: default; }
+.ui-slider .ui-slider-range { position: absolute; z-index: 1; font-size: 10px; display: block; border: 0; }
+
+.ui-slider-horizontal { height: 2px; margin: 7px 0 0 0;}
+.ui-slider-horizontal .ui-slider-handle { top: -.6em; margin-left: -.3em; }
+
+.ui-widget { font-family: Lucida Grande, Lucida Sans, Arial, sans-serif; font-size: 1.1em; }
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Lucida Grande, Lucida Sans, Arial, sans-serif; font-size: 1em; }
+.ui-widget-content { border: 1px solid black; background: #9de000 url(images/ui-bg_inset-hard_100_9de000_1x100.png) 50% bottom repeat-x; color: #222222; }
+
+.ui-slider-scale { display: none; }
 

@@ -5,7 +5,7 @@ class Ship < ActiveRecord::Base
   validates_presence_of :name, :tonnage, :tech_level, :jumpdrive, :thrust, :power
   before_save :check_drives
   
-  def smallcraft
+  def smallcraft?
     tonnage < 100 ? true : false
   end
   
