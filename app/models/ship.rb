@@ -8,6 +8,10 @@ class Ship < ActiveRecord::Base
   def smallcraft?
     tonnage < 100 ? true : false
   end
+
+  def hull_price
+    tonnage * self.configuration.modifier * 0.1
+  end
   
   def max_jumpdrive
     max_jump = tech_level - 9

@@ -4,17 +4,22 @@ body { background: #201f25; color: #888; font-size: 68.75%; }
 table { font-size: 1em; }
 table.normal { border: 1px solid #444; background: #171717; padding: 24px; width: 480px; }
 table.normal td { vertical-align: top; padding: 4px 0; border-bottom: 1px solid #292929; }
+table.normal th { vertical-align: top; padding: 4px 0; border-bottom: 1px solid #292929; }
 table.normal td label { padding-right: 1em; }
-table.normal td.tonnage { text-align: right; padding-right: 0.5em;  width: 4.5em; color: #7f95ff; }
-table.normal td.price { text-align: right; padding-right: 0.5em; width: 4.5em; color: #7f95ff; }
+table.normal td.value { width: 2em; text-align: right;}
+table.normal td.tonnage { text-align: right; padding-right: 0.5em; width: 2.5em; color: #7f95ff; }
+table.normal th.tonnage { text-align: right; padding-right: 0.5em; color: #616161; }
+table.normal td.price { text-align: right; padding-right: 0.5em; width: 2.5em; color: #7f95ff; }
+table.normal th.price { text-align: right; padding-right: 0.5em; color: #616161; }
 table.normal tr.submit td { border: none; text-align: right; }
 
+table td.slider { width: 10em; }
 table td a.config { height: 32px; width: 32px; background: black; border: 1px solid #444; float: left; margin: 0 7px 5px 0; cursor: pointer; }
 table td a.selected { background: #222; }
 
 form.normal label { display: block; color: #626262; font-weight: bold; text-align: right; }
 form.normal select { width: 8em; }
-form.normal textarea { height: 90px; padding: 4px;  width: 320px; font-size: 1em; }
+form.normal textarea { height: 42px; padding: 4px;  width: 320px; font-size: 1em; }
 form.normal textarea, 
 form.normal input.text { background: #222; border: 1px solid #9de000; color: #9de000; font-family: courier; }
 form.normal input.text {  padding: 4px; width: 320px; }
@@ -31,7 +36,6 @@ form.normal input.text {  padding: 4px; width: 320px; }
 
 .ui-widget { font-family: Lucida Grande, Lucida Sans, Arial, sans-serif; font-size: 1.1em; }
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Lucida Grande, Lucida Sans, Arial, sans-serif; font-size: 1em; }
-.ui-widget-content { border: 1px solid black; background: #9de000 url(images/ui-bg_inset-hard_100_9de000_1x100.png) 50% bottom repeat-x; color: #222222; }
+.ui-widget-content { border: 1px solid #171717; background: #9de000 url(/images/ui-bg_inset-hard_100_9de000_1x100.png) 50% bottom repeat-x; color: #222222; }
 
-.ui-slider-scale { display: none; }
 

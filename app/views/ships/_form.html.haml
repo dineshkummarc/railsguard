@@ -2,47 +2,59 @@
 %table.normal{ :cellspacing => '0' }
   %tr
     %td= f.label :name   
-    %td{ :colspan => '3' }= f.text_field :name, :class => 'text'   
+    %td{ :colspan => '4' }= f.text_field :name, :class => 'text'   
   %tr
     %td= f.label :description   
-    %td{ :colspan => '3' }= f.text_area :description   
+    %td{ :colspan => '4' }= f.text_area :description   
   %tr
     %td= f.label :tonnage
-    %td{ :colspan => '3' }= f.text_field :tonnage, :class => 'text'
+    %td{ :colspan => '4' }= f.text_field :tonnage, :class => 'text'
   %tr 
     %td= f.label :configuration, 'Configuration'
-    %td{ :colspan => "3" }= f.select :configuration_id, Configuration.find(:all).collect{ |c| [c.name,c.id] } 
+    %td{ :colspan => "4" }= f.select :configuration_id, Configuration.find(:all).collect{ |c| [c.name,c.id] } 
   %tr
     %td= f.label :tech_level   
     %td.slider= f.select :tech_level, (7..15).map { |i| i }
+    %td.value= @ship.tech_level
     %td
     %td
   - unless @ship.new_record?
     %tr
       %td 
+      %td
+      %td
+      %th.tonnage Tons
+      %th.price MCr
+    %tr
+      %td 
         %label Hull
       %td
+      %td
       %td.tonnage= @ship.tonnage
-      %td.price
-    - unless @ship.smallcraft? 
+      %td.price= @ship.hull_price
+    - unless @ship.smallcraft? || @ship.max_jumpdrive == 0
       %tr
         %td= f.label :jumpdrive
         %td.slider= f.select :jumpdrive, (0..@ship.max_jumpdrive.to_i).map { |i| i }
+        %td.value= @ship.jumpdrive
         %td.tonnage= @ship.jumpdrive_tonnage
         %td.price= @ship.jumpdrive_price
     %tr
       %td= f.label :thrust
       %td.slider= f.select :thrust, (0..@ship.max_thrust.to_i).map { |i| i }
+      %td.value= @ship.thrust
       %td.tonnage= @ship.thrust_tonnage
-      %td.price=# @ship.thrust_price
+      %td.price= @ship.thrust_price
     %tr
       %td= f.label :power       
       %td.slider= f.select :power, (1..18).map { |i| i } 
+      %td.value= @ship.power
       %td.tonnage= @ship.power_tonnage
       %td.price= @ship.power_price
     %tr
       %td
         %label Fuel
+      %td
       %td
       %td.tonnage= @ship.total_fuel
       %td
@@ -50,11 +62,13 @@
       %td
         %label Bridge
       %td
+      %td
       %td.tonnage= @ship.bridge
       %td.price= @ship.bridge_price
     %tr.total
       %td
         %label Total
+      %td
       %td
       %td.tonnage= @ship.total_tonnage
       %td.price=# @ship.total_price

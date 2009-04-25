@@ -14,7 +14,7 @@ function sliders(selector){
   $(selector).each(function(){
     $(this)
       .selectToUISlider({
-        labels: 2,
+        labels: 0,
         sliderOptions: {change: function(){
           var $form = $('#shipForm'), url = $form.attr('action') + '.js'
           $form.ajaxSubmit({ url: url, target: '#ship'});
