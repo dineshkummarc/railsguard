@@ -1,61 +1,60 @@
-- form_for(@ship, :html => { :class => 'normal' }) do |f|   
-  = f.error_messages   
-  %table.normal{ :cellspacing => '0' }
+= f.error_messages
+%table.normal{ :cellspacing => '0' }
+  %tr
+    %td= f.label :name   
+    %td{ :colspan => '3' }= f.text_field :name, :class => 'text'   
+  %tr
+    %td= f.label :description   
+    %td{ :colspan => '3' }= f.text_area :description   
+  %tr
+    %td= f.label :tonnage
+    %td{ :colspan => '3' }= f.text_field :tonnage, :class => 'text'
+  %tr 
+    %td= f.label :configuration, 'Configuration'
+    %td= f.select :configuration_id, Configuration.find(:all).collect{ |c| [c.name,c.id] } 
+    %td 
+    %td
+  %tr
+    %td= f.label :tech_level   
+    %td.slider= f.select :tech_level, (7..15).map { |i| i }
+    %td
+    %td
+  - unless @ship.new_record?
     %tr
-      %td= f.label :name   
-      %td{ :colspan => '3' }= f.text_field :name, :class => 'text'   
+      %td= f.label :jumpdrive
+      %td.slider= f.select :jumpdrive, (0..@ship.max_jumpdrive.to_i).map { |i| i }
+      %td.tonnage= @ship.jumpdrive_tonnage
+      %td.price= @ship.jumpdrive_price
     %tr
-      %td= f.label :description   
-      %td{ :colspan => '3' }= f.text_area :description   
+      %td= f.label :thrust
+      %td.slider= f.select :thrust, (0..@ship.max_thrust.to_i).map { |i| i }
+      %td.tonnage= @ship.thrust_tonnage
+      %td.price=# @ship.thrust_price
     %tr
-      %td= f.label :tonnage
-      %td{ :colspan => '3' }= f.text_field :tonnage, :class => 'text'
-    %tr 
-      %td= f.label :configuration, 'Configuration'
-      %td= f.select :configuration_id, Configuration.find(:all).collect{ |c| [c.name,c.id] } 
-      %td 
+      %td= f.label :power       
+      %td.slider= f.select :power, (1..18).map { |i| i } 
+      %td.tonnage= @ship.power_tonnage
+      %td.price= @ship.power_price
+    %tr
+      %td
+        %label Fuel
+      %td
+      %td.tonnage= @ship.total_fuel
       %td
     %tr
-      %td= f.label :tech_level   
-      %td.slider= f.select :tech_level, (7..15).map { |i| i }
       %td
+        %label Bridge
       %td
-    - unless @ship.new_record?
-      %tr
-        %td= f.label :jumpdrive
-        %td.slider= f.select :jumpdrive, (0..@ship.max_jumpdrive.to_i).map { |i| i }
-        %td.tonnage= @ship.jumpdrive_tonnage
-        %td.price= @ship.jumpdrive_price
-      %tr
-        %td= f.label :thrust
-        %td.slider= f.select :thrust, (0..@ship.max_thrust.to_i).map { |i| i }
-        %td.tonnage= @ship.thrust_tonnage
-        %td.price=# @ship.thrust_price
-      %tr
-        %td= f.label :power       
-        %td.slider= f.select :power, (1..18).map { |i| i } 
-        %td.tonnage= @ship.power_tonnage
-        %td.price= @ship.power_price
-      %tr
-        %td
-          %label Fuel
-        %td
-        %td.tonnage= @ship.total_fuel
-        %td
-      %tr
-        %td
-          %label Bridge
-        %td
-        %td.tonnage= @ship.bridge
-        %td.price= @ship.bridge_price
-      %tr.total
-        %td
-          %label Total
-        %td
-        %td.tonnage= @ship.total_tonnage
-        %td.price=# @ship.total_price
-      
-    %tr.submit
-      %td{ :colspan => '4' }= f.submit @ship.new_record? ? 'Create' : 'Update'
-      
-      
+      %td.tonnage= @ship.bridge
+      %td.price= @ship.bridge_price
+    %tr.total
+      %td
+        %label Total
+      %td
+      %td.tonnage= @ship.total_tonnage
+      %td.price=# @ship.total_price
+    
+  %tr.submit
+    %td{ :colspan => '4' }= f.submit @ship.new_record? ? 'Create' : 'Update'
+    
+    

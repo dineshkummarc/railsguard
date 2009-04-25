@@ -1,0 +1,7 @@
+- form_for(@ship, :html => { :class => 'normal', :id => "shipForm" }) do |f| 
+  #ship
+    = render :partial => 'form', :locals => { :f => f }
+    
+%script
+  sliders('.slider select');
+  ajaxifyForm('#shipForm');

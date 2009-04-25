@@ -1,5 +1,7 @@
 %h1 New ship
-= render :partial => 'form'  
+- form_for(@ship, :html => { :class => 'normal', :id => "shipForm" }) do |f| 
+  #ship 
+    = render :partial => 'form', :locals => { :f => f } 
  
 %p
   = link_to 'Back', ships_path   

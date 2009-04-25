@@ -44,6 +44,7 @@ class ShipsController < ApplicationController
       if @ship.save
         flash[:notice] = 'Ship was successfully created.'
         format.html { redirect_to edit_ship_path(@ship) }
+        format.js   { }
         format.xml  { render :xml => @ship, :status => :created, :location => @ship }
       else
         format.html { render :action => "new" }
@@ -59,6 +60,7 @@ class ShipsController < ApplicationController
       if @ship.update_attributes(params[:ship])
         flash[:notice] = 'Ship was successfully updated.'
         format.html { redirect_to edit_ship_path(@ship) }
+        format.js   {  }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

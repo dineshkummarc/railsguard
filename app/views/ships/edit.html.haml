@@ -1,6 +1,8 @@
 %h2
   = h @ship.name
-= render :partial => 'form'   
+#ship 
+  - form_for(@ship, :html => { :class => 'normal', :id => "shipForm" }) do |f| 
+    = render :partial => 'form', :locals => { :f => f }
 
 %p
   = link_to 'Show', @ship  |
