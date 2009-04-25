@@ -17,23 +17,23 @@
       %td
     %tr
       %td= f.label :tech_level   
-      %td= f.select :tech_level, (7..15).map { |i| i }
+      %td.slider= f.select :tech_level, (7..15).map { |i| i }
       %td
       %td
     - unless @ship.new_record?
       %tr
         %td= f.label :jumpdrive
-        %td= f.select :jumpdrive, (0..@ship.max_jumpdrive.to_i).map { |i| i }
+        %td.slider= f.select :jumpdrive, (0..@ship.max_jumpdrive.to_i).map { |i| i }
         %td.tonnage= @ship.jumpdrive_tonnage
         %td.price= @ship.jumpdrive_price
       %tr
         %td= f.label :thrust
-        %td= f.select :thrust, (0..@ship.max_thrust.to_i).map { |i| i }
+        %td.slider= f.select :thrust, (0..@ship.max_thrust.to_i).map { |i| i }
         %td.tonnage= @ship.thrust_tonnage
         %td.price=# @ship.thrust_price
       %tr
         %td= f.label :power       
-        %td= f.select :power, (1..18).map { |i| i } 
+        %td.slider= f.select :power, (1..18).map { |i| i } 
         %td.tonnage= @ship.power_tonnage
         %td.price= @ship.power_price
       %tr

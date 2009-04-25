@@ -17,7 +17,7 @@ class Ship < ActiveRecord::Base
   end
   
   def jumpdrive_tonnage
-    jumpdrive ? (jumpdrive + 1) * 0.01 * tonnage : 0
+    jumpdrive == 0 ? 0 : (jumpdrive + 1) * 0.01 * tonnage
   end
   
   def jumpdrive_price
