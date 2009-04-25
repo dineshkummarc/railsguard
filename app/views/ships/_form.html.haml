@@ -30,7 +30,7 @@
         %td= f.label :thrust
         %td= f.select :thrust, (0..@ship.max_thrust.to_i).map { |i| i }
         %td.tonnage= @ship.thrust_tonnage
-        %td.price= @ship.thrust_price
+        %td.price=# @ship.thrust_price
       %tr
         %td= f.label :power       
         %td= f.select :power, (1..18).map { |i| i } 

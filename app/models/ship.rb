@@ -68,6 +68,8 @@ class Ship < ActiveRecord::Base
       when tech_level >= 11 && tech_level <= 12 : modifier = 3
       when tech_level >= 13 && tech_level <= 14 : modifier = 2
       when tech_level == 15                     : modifier = 1
+    else
+      modifier = 0
     end
     power ? power * modifier * 0.01 * tonnage : 0
   end
