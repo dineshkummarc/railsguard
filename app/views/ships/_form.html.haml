@@ -20,9 +20,7 @@
     %td
   - unless @ship.new_record?
     %tr
-      %td 
-      %td
-      %td
+      %th{ :colspan => "3" }
       %th.tonnage Tons
       %th.price MCr
     %tr
@@ -30,47 +28,47 @@
         %label Hull
       %td
       %td
-      %td.tonnage= @ship.tonnage
-      %td.price= @ship.hull_price
+      %td.tonnage= commify(@ship.tonnage)
+      %td.price= commify(@ship.hull_price)
     - unless @ship.smallcraft? || @ship.max_jumpdrive == 0
       %tr
         %td= f.label :jumpdrive
         %td.slider= f.select :jumpdrive, (0..@ship.max_jumpdrive.to_i).map { |i| i }
         %td.value= @ship.jumpdrive
-        %td.tonnage= @ship.jumpdrive_tonnage
-        %td.price= @ship.jumpdrive_price
+        %td.tonnage= commify(@ship.jumpdrive_tonnage)
+        %td.price= commify(@ship.jumpdrive_price)
     %tr
       %td= f.label :thrust
       %td.slider= f.select :thrust, (0..@ship.max_thrust.to_i).map { |i| i }
       %td.value= @ship.thrust
-      %td.tonnage= @ship.thrust_tonnage
-      %td.price= @ship.thrust_price
+      %td.tonnage= commify(@ship.thrust_tonnage)
+      %td.price= commify(@ship.thrust_price)
     %tr
       %td= f.label :power       
       %td.slider= f.select :power, (1..18).map { |i| i } 
       %td.value= @ship.power
-      %td.tonnage= @ship.power_tonnage
-      %td.price= @ship.power_price
+      %td.tonnage= commify(@ship.power_tonnage)
+      %td.price= commify(@ship.power_price)
     %tr
       %td
         %label Fuel
       %td
       %td
-      %td.tonnage= @ship.total_fuel
+      %td.tonnage= commify(@ship.total_fuel)
       %td
     %tr
       %td
         %label Bridge
       %td
       %td
-      %td.tonnage= @ship.bridge
-      %td.price= @ship.bridge_price
+      %td.tonnage= commify(@ship.bridge)
+      %td.price= commify(@ship.bridge_price)
     %tr.total
       %td
         %label Total
       %td
       %td
-      %td.tonnage= @ship.total_tonnage
+      %td.tonnage= commify(@ship.total_tonnage)
       %td.price=# @ship.total_price
     
   %tr.submit

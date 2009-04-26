@@ -3,17 +3,18 @@ body { background: #201f25; color: #888; font-size: 68.75%; }
 
 table { font-size: 1em; }
 table.normal { border: 1px solid #444; background: #171717; padding: 24px; width: 480px; }
-table.normal td { vertical-align: top; padding: 4px 0; border-bottom: 1px solid #292929; }
+table.normal td { vertical-align: top; padding: 4px 0;  }
 table.normal th { vertical-align: top; padding: 4px 0; border-bottom: 1px solid #292929; }
 table.normal td label { padding-right: 1em; }
-table.normal td.value { width: 2em; text-align: right;}
+table.normal td.value { width: 2em; text-align: right; padding-right: 0.5em; }
 table.normal td.tonnage { text-align: right; padding-right: 0.5em; width: 2.5em; color: #7f95ff; }
 table.normal th.tonnage { text-align: right; padding-right: 0.5em; color: #616161; }
 table.normal td.price { text-align: right; padding-right: 0.5em; width: 2.5em; color: #7f95ff; }
 table.normal th.price { text-align: right; padding-right: 0.5em; color: #616161; }
 table.normal tr.submit td { border: none; text-align: right; }
+table.normal tr.total td { border-top: 1px solid #292929; }
 
-table td.slider { width: 10em; }
+table td.slider { width: 9em; }
 table td a.config { height: 32px; width: 32px; background: black; border: 1px solid #444; float: left; margin: 0 7px 5px 0; cursor: pointer; }
 table td a.selected { background: #222; }
 

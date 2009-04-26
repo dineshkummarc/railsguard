@@ -62,6 +62,8 @@ class Ship < ActiveRecord::Base
       when thrust == 1 : modifier = 1.5
       when thrust == 2 : modifier = 0.7
       when thrust >= 3 : modifier = 0.5
+    else 
+      modifier = 0
     end
     thrust ? modifier * thrust_tonnage : 0
   end
