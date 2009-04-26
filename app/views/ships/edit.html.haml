@@ -1,5 +1,3 @@
-%h2
-  = h @ship.name
 #ship 
   - form_for(@ship, :html => { :class => 'normal', :id => "shipForm" }) do |f| 
     = render :partial => 'form', :locals => { :f => f }

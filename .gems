@@ -2,3 +2,4 @@ nokogiri
 treetop  
 ruby-openid  
 rubyist-aasm --source http://gems.github.com
+right_aws

@@ -1,0 +1,26 @@
+!!!
+%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
+    %title
+      Ships: 
+      = controller.action_name 
+    = stylesheet_link_tag 'ui.slider.extras.css'
+    = stylesheet_link_tag 'redmond/jquery-ui-1.7.1.custom.css'
+    = stylesheet_link_tag 'scaffold' 
+    = stylesheet_link_tag 'railsguard'
+    
+    = javascript_include_tag 'jquery-1.3.2.min.js'
+    = javascript_include_tag 'jquery-ui-1.7.1.custom.min.js'
+    = javascript_include_tag 'selectToUISlider.jQuery.js'
+    = javascript_include_tag 'jquery.form.js'
+    = javascript_include_tag 'application.js'
+    
+  %body
+    #header
+      #titles
+        %h2 Railsguard
+        %h3 Geekier than ever ship generator for Classic Traveller High Guard rules
+        =# flash[:notice]
+    #container
+      = yield 

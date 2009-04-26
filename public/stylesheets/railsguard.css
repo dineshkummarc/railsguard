@@ -1,5 +1,9 @@
-body { background: #201f25; color: #888; font-size: 68.75%; }
-#container { width: 960px; margin: 0 auto; border: 1px solid #444;}
+body { margin: 0; background: #201f25; color: #888; font-size: 68.75%; }
+#container { width: 960px; margin: 0 auto; border: 1px solid #444; }
+#header { height: 72px; width: 100%; padding: 4px 0; background: black; }
+#header #titles { width: 960px; margin: 0 auto; }
+
+/*------ Main ship table ------ */
 
 table { font-size: 1em; }
 table.normal { border: 1px solid #444; background: #171717; padding: 24px; width: 480px; }
@@ -27,6 +31,8 @@ form.normal input.text {  padding: 4px; width: 320px; }
 
 .right { float: right; }
 .left { float: left; }
+
+/*----- Slider rules for jQueryUI -----*/
 
 .ui-slider { position: relative; text-align: left; }
 .ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: .6em; height: 1.2em; cursor: default; }
